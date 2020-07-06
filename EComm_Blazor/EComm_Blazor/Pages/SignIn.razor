@@ -1,0 +1,70 @@
+﻿@page "/signin"
+
+@using EComm_Blazor.Data.Model
+@using EComm_Blazor.Provider
+
+@inject EComm_Blazor.Data.Service.IRepository.IUserRepository userRepo
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject AuthenticationStateProvider authStateProvider
+
+
+
+<h1>Sign In</h1>
+
+<form Model="@user">
+    <div class="form-group">
+        <label for="txtEmail">Email address</label>
+        <input type="email" class="form-control" id="txtEmail" @bind-value="user.Email" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="txtPassword">Password</label>
+        <input type="password" class="form-control" id="txtPassword" @bind-value="user.Password">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="chkSignin">
+        <label class="form-check-label" for="chkSignin">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" @onclick="Signin">Submit</button>
+</form>
+
+<div>
+    <p class="text-danger">@message</p> 
+</div>
+
+@*@if (isError)
+{
+    <div class="alert alert-danger" role="alert">
+        Incorrect Credential.
+    </div>
+}*@
+
+
+
+@code {
+    private UserModel user = new UserModel();
+    private bool isError = false;
+    private string message = string.Empty;
+    private async Task Signin()
+    {
+        var validUser = await userRepo.SignIn(user);
+
+        if (validUser != null && validUser.IsLoggedIn)
+        {
+            isError = false;
+            NavigationManager.NavigateTo("/", true);
+
+            await localStorage.SetItemAsync<UserModel>("ECOMM_AUTH_COOKIE", validUser);
+            ((CustomAuthStateProvider)authStateProvider).MarkUserAsAuthenticated(validUser);           
+        }
+        else
+        {
+            message = "test";
+            isError = true;
+        }
+    }
+}
+
+

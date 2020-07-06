@@ -1,0 +1,38 @@
+﻿@using EComm_Blazor.Provider
+
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject AuthenticationStateProvider authStateProvider
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <AuthorizeView>
+            <Authorized>
+                <a>@context.User.Identity.Name</a>
+                <a href="signin" @onclick="Signout">Sign out</a>
+            </Authorized>
+            <NotAuthorized>
+                <a href="signin">Sign in</a>
+                <a href="signup">Sign up</a>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+
+@code {
+
+    private async Task Signout()
+    {
+        await localStorage.RemoveItemAsync("ECOMM_AUTH_COOKIE");
+        ((CustomAuthStateProvider)authStateProvider).MarkUserAsUnAuthenticated();
+    }
+}

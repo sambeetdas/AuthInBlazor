@@ -1,0 +1,39 @@
+﻿@page "/signup"
+
+@using EComm_Blazor.Data.Model
+@inject EComm_Blazor.Data.Service.IRepository.IUserRepository signup
+
+<h1>Sign Up</h1>
+
+<form>
+    <div class="form-group">
+        <label for="txtEmail">Email address</label>
+        <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="txtPassword">Password</label>
+        <input type="password" class="form-control" id="txtPassword">
+    </div>
+    <div class="form-group">
+        <label for="txtConfirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="txtConfirmPassword">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="chkSignin">
+        <label class="form-check-label" for="chkSignin">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" @onclick="Signup">Submit</button>
+</form>
+
+
+@code {
+    private UserModel user;
+
+    private async Task Signup()
+    {
+        //user = await signup.SignIn(DateTime.Now);
+    }
+}
+
+

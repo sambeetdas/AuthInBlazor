@@ -1,0 +1,15 @@
+﻿@page "/"
+
+<h1>ECOMM</h1>
+
+
+<AuthorizeView>
+    <Authorized>
+        Welcome @context.User.Identity.Name to the ECOMM app.
+    </Authorized>
+    <NotAuthorized>
+        Welcome to the ECOMM app. please sign in to continue.
+    </NotAuthorized>
+</AuthorizeView>
+
+
