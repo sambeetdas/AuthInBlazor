@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AuthinBlazor/WebApp/bin
+/AuthinBlazor/WebApp/obj
+/AuthinBlazor/Service/bin
+/AuthinBlazor/Service/obj
+/AuthinBlazor/Model/bin
+/AuthinBlazor/Model/obj
+/AuthinBlazor/Repository/bin/Debug/net8.0
+/AuthinBlazor/Repository/obj
