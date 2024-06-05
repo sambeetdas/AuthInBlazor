@@ -1,13 +1,13 @@
 ﻿using Blazored.LocalStorage;
 using Blazored.SessionStorage;
-using EComm_Blazor.Data.Model;
+using WebApp.Data.Model;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace EComm_Blazor.Provider
+namespace WebApp.Provider
 {
     public class CustomAuthStateProvider : AuthenticationStateProvider
     {

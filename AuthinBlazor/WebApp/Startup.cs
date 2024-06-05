@@ -9,18 +9,18 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using EComm_Blazor.Data;
-using EComm_Blazor.Data.Service.IRepository;
-using EComm_Blazor.Data.Service.Repository;
+using WebApp.Data;
+using WebApp.Data.Service.IRepository;
+using WebApp.Data.Service.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Net.Http;
 using Microsoft.AspNetCore.Components.Authorization;
-using EComm_Blazor.Provider;
+using WebApp.Provider;
 using Blazored.SessionStorage;
 using Blazored.LocalStorage;
 
-namespace EComm_Blazor
+namespace WebApp
 {
     public class Startup
     {

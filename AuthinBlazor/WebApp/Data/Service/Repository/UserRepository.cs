@@ -1,14 +1,14 @@
 ﻿using Blazored.SessionStorage;
-using EComm_Blazor.Data.Model;
-using EComm_Blazor.Data.Service.IRepository;
-using EComm_Blazor.Provider;
+using WebApp.Data.Model;
+using WebApp.Data.Service.IRepository;
+using WebApp.Provider;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EComm_Blazor.Data.Service.Repository
+namespace WebApp.Data.Service.Repository
 {
     public class UserRepository : IUserRepository
     {

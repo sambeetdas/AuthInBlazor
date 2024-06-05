@@ -1,5 +1,5 @@
 ﻿using Blazored.SessionStorage;
-using EComm_Blazor.Data.Model;
+using WebApp.Data.Model;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace EComm_Blazor.Provider
+namespace WebApp.Provider
 {
     public class CookieManager
     {

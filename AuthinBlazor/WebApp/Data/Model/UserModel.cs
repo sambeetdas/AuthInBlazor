@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EComm_Blazor.Data.Model
+namespace WebApp.Data.Model
 {
     public class UserModel
     {
