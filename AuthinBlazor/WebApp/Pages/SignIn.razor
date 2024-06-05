@@ -51,7 +51,7 @@
     {
         var validUser = await userService.ValidUser(user);
 
-        if (validUser != null && validUser.IsLoggedIn)
+        if (validUser != null)
         {
             isError = false;
             NavigationManager.NavigateTo("/", true);

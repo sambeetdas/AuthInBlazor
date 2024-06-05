@@ -9,6 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserService
     {
-        Task<UserModel> ValidUser(UserModel user);
+        Task<UserModel?> ValidUser(UserModel user);
+        Task<UserModel> AddUser(UserModel user);
     }
 }

@@ -8,9 +8,11 @@ namespace Repository.Implementations
     {
         public Task<UserEntity> GetUserByEmailAndPassword(string email, string password)
         {
-            return Task.FromResult<UserEntity>(GetUser().FirstOrDefault(index => index.Email.Trim().ToLower() == email && index.Password == password.Trim()));
+            var user = GetUser().FirstOrDefault(index => index.Email.Trim().ToLower() == email && index.Password == password.Trim());
+            
+            return Task.FromResult<UserEntity>(user);
         }
-        private List<UserEntity> GetUser()
+        private static List<UserEntity> GetUser()
         {
             var users = new List<UserEntity>() {
                 new UserEntity{
