@@ -25,12 +25,15 @@ namespace Service.Implementations
         //CookieManager cookieMgr = new CookieManager();
         public async Task<UserModel?> ValidUser(UserModel user)
         {
-            var validUser = await _userRepository.GetUserByEmailAndPassword(user.Name, user.Password);
+            var validUser = await _userRepository.GetUserByEmailAndPassword(user.Email, user.Password);
 
             if (validUser != null)
             {
                 //For Security
                 user.Password = string.Empty;
+
+                user.Name = validUser.Name;
+                user.Role = validUser.Role;
 
                 //Add to UserModel to Cookie
                 //_sessionStorage.SetItemAsync("ECOMM_AUTH_COOKIE", Newtonsoft.Json.JsonConvert.SerializeObject(validatedUser));
