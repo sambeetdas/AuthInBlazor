@@ -1,6 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Blazored.SessionStorage;
-using WebApp.Data.Model;
+using Model.DTOs;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http;
 using System;

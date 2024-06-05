@@ -1,24 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Blazored.LocalStorage;
+using Blazored.SessionStorage;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WebApp.Data;
-using WebApp.Data.Service.IRepository;
-using WebApp.Data.Service.Repository;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Net.Http;
-using Microsoft.AspNetCore.Components.Authorization;
+using Repository.Contracts;
+using Repository.Implementations;
+using Service.Contracts;
+using Service.Implementations;
 using WebApp.Provider;
-using Blazored.SessionStorage;
-using Blazored.LocalStorage;
 
 namespace WebApp
 {
@@ -38,8 +30,9 @@ namespace WebApp
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddSingleton<IUserRepository, UserRepository>();
-            
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
+
             //Custom Auth State provider service added
             services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 
@@ -65,7 +58,6 @@ namespace WebApp
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

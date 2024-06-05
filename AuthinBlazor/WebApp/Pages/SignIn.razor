@@ -1,9 +1,9 @@
 ﻿@page "/signin"
 
-@using WebApp.Data.Model
+@using Model.DTOs
 @using WebApp.Provider
 
-@inject WebApp.Data.Service.IRepository.IUserRepository userRepo
+@inject Service.Contracts.IUserService userService
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
@@ -49,7 +49,7 @@
     private string message = string.Empty;
     private async Task Signin()
     {
-        var validUser = await userRepo.SignIn(user);
+        var validUser = await userService.ValidUser(user);
 
         if (validUser != null && validUser.IsLoggedIn)
         {
@@ -61,7 +61,7 @@
         }
         else
         {
-            message = "test";
+            message = "invalid credentials";
             isError = true;
         }
     }

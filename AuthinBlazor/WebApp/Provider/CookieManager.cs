@@ -1,5 +1,5 @@
 ﻿using Blazored.SessionStorage;
-using WebApp.Data.Model;
+using Model.DTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
