@@ -1,0 +1,63 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EComm_Blazor
+build_property.RootNamespace = EComm_Blazor
+build_property.ProjectDir = D:\Sambeet\Working Folder\AuthInBlazor\EComm_Blazor\EComm_Blazor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Sambeet\Working Folder\AuthInBlazor\EComm_Blazor\EComm_Blazor
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/Dashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/Setting.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/SignIn.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbkluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/SignUp.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnblVwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Sambeet/Working Folder/AuthInBlazor/EComm_Blazor/EComm_Blazor/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
