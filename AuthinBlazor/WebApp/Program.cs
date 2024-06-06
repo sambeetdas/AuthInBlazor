@@ -1,28 +1,62 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Model.Constants;
+using Repository.Contracts;
+using Repository.Implementations;
+using Service.Contracts;
+using Service.Implementations;
+using WebApp.Provider;
 
-namespace WebApp
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+
+// Register IHttpContextAccessor
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie(options =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+    options.LoginPath = "/signin";
+});
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("MustBeAdmin", policy => policy.RequireRole("Admin"));
+});
+
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IUserService, UserService>();
+
+builder.Services.AddTransient<CustomAuthenticationStateProvider>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseRouting();
+
+#region Authentication and Authorization Middleware
+app.UseAuthentication();
+app.UseAuthorization();
+#endregion
+
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
+
+app.Run();

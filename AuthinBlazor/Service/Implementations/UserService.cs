@@ -8,13 +8,9 @@ namespace Service.Implementations
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        //private readonly ISessionStorageService _sessionStorage;
-        public UserService(IUserRepository userRepository
-            //,ISessionStorageService sessionStorage
-            ) 
+        public UserService(IUserRepository userRepository) 
         {
             _userRepository = userRepository;
-            //_sessionStorage = sessionStorage;
         }
 
         public Task<UserModel> AddUser(UserModel user)
@@ -34,10 +30,6 @@ namespace Service.Implementations
 
                 user.Name = validUser.Name;
                 user.Role = validUser.Role;
-
-                //Add to UserModel to Cookie
-                //_sessionStorage.SetItemAsync("ECOMM_AUTH_COOKIE", Newtonsoft.Json.JsonConvert.SerializeObject(validatedUser));
-                //cookieMgr.Set(_httpContextAccessor, validatedUser);
 
                 return user;
             }

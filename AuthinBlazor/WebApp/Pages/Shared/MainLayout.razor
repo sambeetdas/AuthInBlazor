@@ -1,10 +1,9 @@
-﻿@using WebApp.Provider
+﻿@using Microsoft.AspNetCore.Authentication.Cookies
+@using WebApp.Provider
 
 @inherits LayoutComponentBase
-@inject NavigationManager NavigationManager
-@inject Blazored.LocalStorage.ILocalStorageService localStorage
-@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
-@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager Navigation
+@inject CustomAuthenticationStateProvider AuthenticationStateProvider
 
 <div class="sidebar">
     <NavMenu />
@@ -15,11 +14,11 @@
         <AuthorizeView>
             <Authorized>
                 <a>@context.User.Identity.Name</a>
-                <a href="signin" @onclick="Signout">Sign out</a>
+                <a href="signin" @onclick="Signout">Sign Out</a>
             </Authorized>
             <NotAuthorized>
-                <a href="signin">Sign in</a>
-                <a href="signup">Sign up</a>
+                <a href="signin">Sign In</a>
+                <a href="signup">Sign Up</a>
             </NotAuthorized>
         </AuthorizeView>
     </div>
@@ -32,7 +31,7 @@
 
     private async Task Signout()
     {
-        await localStorage.RemoveItemAsync("ECOMM_AUTH_COOKIE");
-        ((CustomAuthStateProvider)authStateProvider).MarkUserAsUnAuthenticated();
+        await AuthenticationStateProvider.SignOutAsync();
+        Navigation.NavigateTo("/");
     }
 }
