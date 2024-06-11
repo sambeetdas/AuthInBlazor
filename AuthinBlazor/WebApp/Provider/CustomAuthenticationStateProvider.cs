@@ -32,5 +32,17 @@ namespace WebApp.Provider
             await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
+
+        public bool IsAuthenticated()
+        {
+            return _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
+        }
+
+        public string GetUserName()
+        {
+            return _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated
+                ? _httpContextAccessor.HttpContext.User.Identity.Name
+                : null;
+        }
     }
 }
